@@ -1,52 +1,17 @@
-<mvc:View
-   xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m">
-
-   <Table id="idBooksTable"
-		items="{
-			path: '/Books',
-			sorter: {
-				path: 'Title'
-			}
-		}"
-		growing="true"
-		growingThreshold="10">
-	
-		<columns>
-			<Column>
-				<Text text="Title" />
-			</Column>
-			<Column>
-				<Text text="Author" />
-			</Column>
-			<Column>
-				<Text text="Published on" />
-			</Column>
-			<Column>
-				<Text text="Language" />
-			</Column>
-         <Column>
-				<Text text="Available books" />
-			</Column>
-		</columns>
-		<items>
-			<ColumnListItem>
-				<cells>
-					<ObjectIdentifier
-						title="{Title}"
-						text="{ISBN}"/>
-					<Text text="{Author}" />
-					<Text text="{ 
-							path: 'DatePublished',
-							type: 'sap.ui.model.type.Date'
-               			}" 
-					/>
-					<Text text="{Language}" />
-					<Text text="{= parseInt(${NubmerAvailableBooks}) }" />
-				</cells>
-			</ColumnListItem>
-		</items>
-	</Table>
-   
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+          xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml"
+          controllerName="org.ubb.books.controller.BookList" height="100%">
+    <Page id="booksPage" navButtonPress="onNavBack" showNavButton="false">
+        <content>
+            <smartTable:SmartTable id="checkoutsSmartTable" entitySet="CheckedBooksSet" tableType="ResponsiveTable" smartFilterId="smartFilterBar"
+                                   placeToolbarInTable="true" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true"
+                                   header="Line Items" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true"
+                                   class="sapUiResponsiveContentPadding sapUiSizeCompact"
+                                   initiallyVisibleFields="ISBN,Author,Title,FirstName,LastName,DateCheckout,DateReturn">
+                <smartTable:layoutData>
+                    <FlexItemData growFactor="1"/>
+                </smartTable:layoutData>
+            </smartTable:SmartTable>
+        </content>
+    </Page>
 </mvc:View>
