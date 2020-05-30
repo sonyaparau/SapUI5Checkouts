@@ -7,7 +7,7 @@
                                    placeToolbarInTable="true" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true"
                                    header="Line Items" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true"
                                    class="sapUiResponsiveContentPadding sapUiSizeCompact"
-                                   initiallyVisibleFields="ISBN,Author,Title,FirstName,LastName,DateCheckout,DateReturn">
+                                   initiallyVisibleFields="ISBN,Author,Title,FirstName,LastName,Username,CheckoutDate,ReturnDate">
                 <smartTable:layoutData>
                     <FlexItemData growFactor="1"/>
                 </smartTable:layoutData>
